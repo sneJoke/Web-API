@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html>
+<head>
+
+    <meta charset=utf-8>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/Service.asmx/DeleteData",
+                    data: '{"table":{"Name":"new_taskpro","Id":{"Value":"c7a58d64-7d83-e811-80e8-0050569edd3e"}}}',
+                    dataType: "json"
+                });
+            });
+
+            $("#btn2").click(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/Service.asmx/UpdateData",
+                    data: '{"table":{"Name":"new_taskpro","Fields":[{"Caption":"new_stattask","Value":2,"Format":"vps"}],"Id":{"Value":"c7a58d64-7d83-e811-80e8-0050569edd3e"}}}',
+                    dataType: "json"
+                });
+            });
+
+            $("#btn3").click(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/Service.asmx/CreateData",
+                    data: '{"table":{"Name":"new_taskpro","Fields":[{"Caption":"new_stattask","Value":3,"Format":"vps"}]}}',
+                    dataType: "json"
+                });
+            });
+
+            $("#btn4").click(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/Service.asmx/ReadData",
+                    data: '{"table":{"Name":"new_taskpro","Fields":[{"Caption":"new_projectid"},{"Caption":"new_stattask"}],"Id":{"Name":"new_taskproid","Value":"80332080-63F4-E611-80C7-00155D220B08"}}}',
+                    dataType: "json"
+                });
+            });
+
+            $("#btn5").click(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/Service.asmx/SelectData",
+                    data: '{"table":{"Name":"new_taskpro"}}',
+                    dataType: "json"
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <button id="btn1">DeleteData</button>
+    <br>
+    <button id="btn2">UpdateData</button>
+    <br>
+    <button id="btn3">CreateData</button>
+    <br>
+    <button id="btn4">ReadData</button>
+    <br>
+    <button id="btn5">SelectData</button>
+</body>
+</html>
